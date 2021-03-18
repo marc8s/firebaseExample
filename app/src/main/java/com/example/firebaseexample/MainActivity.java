@@ -44,12 +44,30 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });*/
 
-        /*verifica usuario logado*/
+        /*deslogar usuario IT WORKS!
+        user.signOut();*/
+        /*logar usuario*/
+        user.signInWithEmailAndPassword(
+                "marcus.ecomp@gmail.com", "123456")
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Log.i("SigninUser", "Sucesso ao logar usuario!");
+                        }else{
+                            Log.i("SigninUser", "Erro ao logar usuario!");
+                        }
+                    }
+                });
+
+        /*verifica usuario logado IT WORKS!
         if(user.getCurrentUser() != null){
             Log.i("LoggedUser", "Usuario esta logado!");
         }else{
             Log.i("LoggedUser", "Usuario não esta logado!");
-        }
+        }*/
+
+
 
 
         /*DatabaseReference concorrentes = reference.child("concorrentes");
@@ -74,4 +92,6 @@ public class MainActivity extends AppCompatActivity {
         concorrente.setAge(34);
         concorrentes.child("003").setValue(concorrente);*/
     }
+
+
 }
