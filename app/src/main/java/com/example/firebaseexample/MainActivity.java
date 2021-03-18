@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*criar usuario no firebase*/
+        /*criar usuario no firebase IT WORKS!
         user.createUserWithEmailAndPassword(
                 "marcus.ecomp@gmail.com", "123456")
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
@@ -42,7 +42,14 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("CreateUser", "Erro ao cadastrar usuario!");
                         }
                     }
-                });
+                });*/
+
+        /*verifica usuario logado*/
+        if(user.getCurrentUser() != null){
+            Log.i("LoggedUser", "Usuario esta logado!");
+        }else{
+            Log.i("LoggedUser", "Usuario não esta logado!");
+        }
 
 
         /*DatabaseReference concorrentes = reference.child("concorrentes");
