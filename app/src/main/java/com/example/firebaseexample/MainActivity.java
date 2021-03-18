@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     //reference permite salvar dados no firebase
-    //private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     //necessário para criar usuario no firebase
     private FirebaseAuth user = FirebaseAuth.getInstance();
@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*adicionar usuário e gerar id automaticamente IT WORKS!
+        DatabaseReference concorrentes = reference.child("concorrentes");
+        Concorrente concorrente = new Concorrente();
+        concorrente.setName("Detox");
+        concorrente.setAge(34);
+
+        concorrentes.push().setValue(concorrente);*/
+
         /*criar usuario no firebase IT WORKS!
         user.createUserWithEmailAndPassword(
                 "marcus.ecomp@gmail.com", "123456")
@@ -43,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });*/
+;
 
         /*deslogar usuario IT WORKS!
         user.signOut();*/
-        /*logar usuario*/
+
+        /*logar usuario IT WORKS!
         user.signInWithEmailAndPassword(
                 "marcus.ecomp@gmail.com", "123456")
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -58,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("SigninUser", "Erro ao logar usuario!");
                         }
                     }
-                });
+                });*/
 
         /*verifica usuario logado IT WORKS!
         if(user.getCurrentUser() != null){
@@ -83,14 +94,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        //cria um novo nó sem filhos no firebase NÃO FUNCIONOU :(
-        //reference.child("desafios").child("002").setValue("Rusical");
+        //cria um novo nó sem filhos no firebase
+        //reference.child("desafios").child("001").setValue("Rusical");
 
-       /* DatabaseReference concorrentes = reference.child("concorrentes");
-        Concorrente concorrente = new Concorrente();
-        concorrente.setName("Detox");
-        concorrente.setAge(34);
-        concorrentes.child("003").setValue(concorrente);*/
+
     }
 
 
