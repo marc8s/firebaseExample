@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -30,12 +31,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*FILTROS*/
+        /*FILTROS IT WORKS
         DatabaseReference concorrentes = reference.child("concorrentes");
         DatabaseReference concorrentePesquisa = concorrentes.child("-MW9oDX8Jv3rbyOyU8jR");
         concorrentePesquisa.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Concorrente dadosConcorrente = dataSnapshot.getValue(Concorrente.class);
+                //Log.i("Dados concorrente: ", "nome: " + dadosConcorrente.getName());
+                Log.i("Dados concorrente: ", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        })*/
+        /*filtros utilizando query*/
+        DatabaseReference concorrentes = reference.child("concorrentes");
+        //Query concorrentePesquisa = concorrentes.orderByChild("name").equalTo("Detox");
+        Query concorrentePesquisa = concorrentes.orderByKey().limitToFirst(3);
+        concorrentePesquisa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Concorrente dadosConcorrente = dataSnapshot.getValue(Concorrente.class);
+                //Log.i("Dados concorrente: ", "nome: " + dadosConcorrente.getName());
                 Log.i("Dados concorrente: ", dataSnapshot.getValue().toString());
             }
 
@@ -44,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         })
-
-
         /*adicionar usuário e gerar id automaticamente IT WORKS!
         DatabaseReference concorrentes = reference.child("concorrentes");
         Concorrente concorrente = new Concorrente();
