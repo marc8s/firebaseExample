@@ -30,12 +30,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*FILTROS*/
+        DatabaseReference concorrentes = reference.child("concorrentes");
+        DatabaseReference concorrentePesquisa = concorrentes.child("-MW9oDX8Jv3rbyOyU8jR");
+        concorrentePesquisa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("Dados concorrente: ", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        })
+
 
         /*adicionar usuário e gerar id automaticamente IT WORKS!
         DatabaseReference concorrentes = reference.child("concorrentes");
         Concorrente concorrente = new Concorrente();
-        concorrente.setName("Detox");
-        concorrente.setAge(34);
+        concorrente.setName("Chad Michaels");
+        concorrente.setAge(50);
 
         concorrentes.push().setValue(concorrente);*/
 
