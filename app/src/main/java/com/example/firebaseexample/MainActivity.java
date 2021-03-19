@@ -29,6 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.UUID;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -67,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 //define nós para o storage
                 StorageReference storageReference = FirebaseStorage.getInstance().getReference();
                 StorageReference images = storageReference.child("images");
-                StorageReference imageRef = images.child("celular.jpeg");
+                //nome da imagem
+                String nomeArquivo = UUID.randomUUID().toString();
+                StorageReference imageRef = images.child(nomeArquivo + ".jpeg");
                 //retorna objeto que ira controlar o upload
                 UploadTask uploadTask = imageRef.putBytes(dadosImagem);
                 uploadTask.addOnFailureListener(MainActivity.this, new OnFailureListener() {

@@ -7,4 +7,4 @@ Compilado de operações básicas utilizando firebase
 3) Recuperar dados
 4) Cadastro usuário
 5) Login e logout usuario
-
+6) upload de imagens
