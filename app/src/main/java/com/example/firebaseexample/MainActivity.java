@@ -21,10 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     //reference permite salvar dados no firebase
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    //private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     //necessário para criar usuario no firebase
-    private FirebaseAuth user = FirebaseAuth.getInstance();
+    //private FirebaseAuth user = FirebaseAuth.getInstance();
 
 
     @Override
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         })*/
-        /*filtros utilizando query*/
+        /*filtros utilizando query IT WORKS
         DatabaseReference concorrentes = reference.child("concorrentes");
         //Query concorrentePesquisa = concorrentes.orderByChild("name").equalTo("Detox");
         Query concorrentePesquisa = concorrentes.orderByKey().limitToFirst(3);
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        })
+        })*/
         /*adicionar usuário e gerar id automaticamente IT WORKS!
         DatabaseReference concorrentes = reference.child("concorrentes");
         Concorrente concorrente = new Concorrente();
