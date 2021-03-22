@@ -8,3 +8,5 @@ Compilado de operações básicas utilizando firebase
 4) Cadastro usuário
 5) Login e logout usuario
 6) upload de imagens
+
+obs. Se parecer tudo correto e não estiver funcionando o realtimedatabase experimentar Build>Clean Projet e depois Build>Rebuild Projet
